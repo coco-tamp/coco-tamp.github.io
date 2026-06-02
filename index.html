@@ -256,6 +256,72 @@
 </section> -->
 
 
+<!-- Coco painting easter egg -->
+<section class="section" style="padding: 0.5rem 1.5rem 0 1.5rem;">
+  <div class="container is-max-desktop has-text-centered">
+    <a class="coco-easter-egg" id="coco-modal-trigger" title="Painting by Raghav, inspired by the Disney Pixar Coco poster">
+      <img src="./static/images/coco_painting.jpeg" alt="Painting made with acrylic and gouache paints, which mimics the poster for the Pixar movie Coco. It features two people standing on a bridge made of yellow-orange petals holding guitars. One is a young kid wearing a red hoodie and blue pants with a brown guitar. The second person is a skeleton wearing red shirt, brown pants, and light brown hat. He is also holding a brown guitar. Both the skeleton and the boy do not have fingers because the author (and painter) of this does not know how to draw and paint fingers properly. In the background, fireworks are going off to celebrate the Day of the Dead (Dia de (los) Muertos), and on top is written COCO TAMP. COCO TAMP stands for Commonsense Correlational Task and Motion Planner, and this poster uses the familiarity of the research name with the Pixar movie Coco.">
+    </a>
+    <p class="coco-easter-caption">
+      Painting by Raghav, inspired by the Disney Pixar Coco poster
+    </p>
+  </div>
+</section>
+
+<div class="modal" id="coco-modal">
+  <div class="modal-background" id="coco-modal-bg"></div>
+  <div class="modal-content">
+    <img src="./static/images/coco_painting.jpeg" alt="CoCo-TAMP painting" style="width: auto; max-width: 100%; max-height: 85vh; display: block; margin: 0 auto; border-radius: 8px;">
+  </div>
+  <button class="modal-close is-large" aria-label="close" id="coco-modal-close"></button>
+</div>
+
+<style>
+.coco-easter-egg {
+  display: inline-block;
+  cursor: pointer;
+}
+.coco-easter-egg img {
+  max-width: 70px;
+  border-radius: 4px;
+  opacity: 0.75;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.coco-easter-egg:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+.coco-easter-caption {
+  font-size: 0.85em;
+  color: #999;
+  margin-top: 0.5em;
+  font-style: italic;
+}
+</style>
+
+<script>
+(function() {
+  var trigger = document.getElementById('coco-modal-trigger');
+  var modal = document.getElementById('coco-modal');
+  var bg = document.getElementById('coco-modal-bg');
+  var closeBtn = document.getElementById('coco-modal-close');
+
+  if (trigger && modal) {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.classList.add('is-active');
+    });
+    if (bg) bg.addEventListener('click', function() { modal.classList.remove('is-active'); });
+    if (closeBtn) closeBtn.addEventListener('click', function() { modal.classList.remove('is-active'); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+        modal.classList.remove('is-active');
+      }
+    });
+  }
+})();
+</script>
+
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
